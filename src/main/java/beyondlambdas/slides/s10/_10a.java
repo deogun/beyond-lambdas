@@ -14,24 +14,25 @@
  * limitations under the License.
  */
 
-package beyondlambdas.slides.s8;
+package beyondlambdas.slides.s10;
 
-import java.util.concurrent.atomic.AtomicLong;
+import org.junit.Test;
 
-import static se.sawano.java.commons.lang.validate.Validate.notNull;
+import static org.junit.Assert.assertEquals;
 
-class OrderService {
+public class _10a {
 
-    private final AtomicLong sentOrders = new AtomicLong();
+    @Test
+    public void should_build_tesla() {
 
-    public void sendOrder(final Order order) {
-        notNull(order);
+        assertEquals(1000, new TeslaFactory().createTesla().engine().horsepower());
 
-        //Send to order management system...
-        sentOrders.incrementAndGet();
     }
 
-    public long sentOrders() {
-        return sentOrders.get();
+    @Test
+    public void should_build_volvo() {
+
+        assertEquals(250, new VolvoFactory().createVolvo().engine().horsepower());
+
     }
 }

@@ -14,33 +14,18 @@
  * limitations under the License.
  */
 
-package beyondlambdas.slides.s11;
+package beyondlambdas.slides.s3;
 
-import org.junit.Test;
+import java.util.Optional;
 
-import java.util.List;
+import static beyondlambdas.slides.s3.Support.doSomething;
 
-import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.toList;
+//3
+@SuppressWarnings("Convert2MethodRef")
+public class _3a {
 
-//29
-public class _11 {
-
-    @Test
-    public void _() {
-
-        final List<Integer> values = asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
-        allEvenNumbers(values);
-
-        System.out.println("Hello");
-
-    }
-
-    static List<Integer> allEvenNumbers(final List<Integer> values) {
-        return values.stream()
-                     .filter(Support::isEven)
-                     .collect(toList());
+    <T> void _(final Optional<T> argument) {
+        argument.ifPresent(a -> doSomething(a));
     }
 
 }

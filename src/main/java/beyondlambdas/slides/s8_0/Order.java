@@ -14,18 +14,25 @@
  * limitations under the License.
  */
 
-package beyondlambdas.slides.s3;
+package beyondlambdas.slides.s8_0;
 
-import java.util.Optional;
+import static se.sawano.java.commons.lang.validate.Validate.notNull;
 
-import static beyondlambdas.slides.s3.Support.doSomething;
+final class Order {
 
-//3
-@SuppressWarnings("Convert2MethodRef")
-public class _3 {
+    private final Long itemId;
+    private final Long userId;
 
-    <T> void _(final Optional<T> argument) {
-        argument.map(a -> doSomething(a));
+    public Order(final Long itemId, final Long userId) {
+        this.itemId = notNull(itemId);
+        this.userId = notNull(userId);
     }
 
+    public Long itemId() {
+        return itemId;
+    }
+
+    public Long userId() {
+        return userId;
+    }
 }

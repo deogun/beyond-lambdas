@@ -14,24 +14,34 @@
  * limitations under the License.
  */
 
-package beyondlambdas.slides.s14;
+package beyondlambdas.slides.s8_1;
+
+import org.junit.Test;
 
 import java.util.List;
+import java.util.stream.Stream;
 
+import static beyondlambdas.slides.s8_1.Support.*;
 import static java.util.stream.Collectors.toList;
 
-public class _14 {
+public class _8_1c {
 
-    final String pattern;
+    @Test
+    public void _() {
 
-    public _14(final String pattern) {
-        this.pattern = pattern;
+        final List<User> users = badJsonData().flatMap(this::tryParse)
+                                              .collect(toList());
+
+        sendCouponTo(users);
+
     }
 
-    public List<String> allMatchingElements(final List<String> elements) {
-        return elements.stream()
-                       .filter(e -> e.contains(pattern))
-                       .collect(toList());
+    Stream<User> tryParse(final String json) {
+        try {
+            return Stream.of(parseJson(json));
+        } catch (Exception e) {
+            trackError(e);
+            return Stream.empty();
+        }
     }
-
 }

@@ -14,32 +14,25 @@
  * limitations under the License.
  */
 
-package beyondlambdas.slides.s6;
-
-import org.junit.Test;
+package beyondlambdas.slides.s14;
 
 import java.util.List;
-import java.util.stream.Stream;
 
-import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.joining;
-import static org.junit.Assert.assertEquals;
+import static java.util.stream.Collectors.toList;
 
-public class _6 {
+@SuppressWarnings("unused")
+public class _14a {
 
-    @Test
-    public void _() {
+    final String pattern;
 
-        final Stream<String> stream = elements().stream()
-                                                .sorted();
-
-        final String result = stream.collect(joining(","));
-
-        assertEquals("A,B,C", result);
-
+    public _14a(final String pattern) {
+        this.pattern = pattern;
     }
 
-    static List<String> elements() {
-        return asList("C", "B", null, "A");
+    public List<String> allMatchingElements(final List<String> elements) {
+        return elements.stream()
+                       .filter(e -> e.contains(pattern))
+                       .collect(toList());
     }
+
 }

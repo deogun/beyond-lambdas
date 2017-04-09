@@ -14,7 +14,21 @@
  * limitations under the License.
  */
 
-package beyondlambdas.slides.s10;
+package beyondlambdas.slides.s8_0;
 
-public interface Generator {
+class UserService {
+
+    private final ThreadLocal<User> currentUser = new ThreadLocal<>();
+
+    public User currentUser() {
+        return currentUser.get();
+    }
+
+    public void setCurrentUser(final User user) {
+        currentUser.set(user);
+    }
+
+    public void clearCurrentUser() {
+        currentUser.remove();
+    }
 }

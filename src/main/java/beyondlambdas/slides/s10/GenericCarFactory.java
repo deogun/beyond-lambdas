@@ -20,10 +20,10 @@ import java.util.function.Function;
 
 import static se.sawano.java.commons.lang.validate.Validate.notNull;
 
-public class GenericCarFactory implements CarFactory {
+class GenericCarFactory implements CarFactory {
     private final Function<CarFactory, Engine> engineStrategy;
 
-    public GenericCarFactory(final Function<CarFactory, Engine> engineStrategy) {
+    private GenericCarFactory(final Function<CarFactory, Engine> engineStrategy) {
         this.engineStrategy = notNull(engineStrategy);
     }
 
@@ -34,10 +34,10 @@ public class GenericCarFactory implements CarFactory {
     }
 
     @Override
-    public Generator generator() {
+    public Alternator alternator() {
         final Engine engine = engineStrategy.apply(this);
 
-        return engine.horsepower() > 400 ? new BadAssGenerator() : new NormalGenerator();
+        return engine.horsepower() > 400 ? new BadAssAlternator() : new NormalAlternator();
     }
 
     private static final class GenericCar implements Car {
@@ -53,11 +53,11 @@ public class GenericCarFactory implements CarFactory {
         }
     }
 
-    private static final class BadAssGenerator implements Generator {
+    private static final class BadAssAlternator implements Alternator {
         //Bad Ass generator stuff
     }
 
-    private static final class NormalGenerator implements Generator {
+    private static final class NormalAlternator implements Alternator {
         //Normal generator stuff
     }
 }

@@ -14,29 +14,32 @@
  * limitations under the License.
  */
 
-package beyondlambdas.slides.s1;
+package beyondlambdas.slides.s8_1;
 
 import org.junit.Test;
 
-import java.util.Optional;
+import java.util.List;
+import java.util.stream.Stream;
 
-import static beyondlambdas.slides.s1.Advise.currentAdvise;
+import static beyondlambdas.slides.s8_1.Support.*;
+import static java.util.stream.Collectors.toList;
 
-@SuppressWarnings("ConstantConditions")
-public class _1b {
-
-    final Oracle oracle = new Oracle();
-
-    String _() {
-        final Advise advise = currentAdvise();
-
-        return Optional.ofNullable(advise)
-                       .map(Advise::cheap)
-                       .orElse(oracle.advise().expensive());
-    }
+public class _8_1b {
 
     @Test
-    public void should_get_advice() {
-        _();
+    public void _() {
+
+        try {
+            final Stream<String> jsonDataStream = badJsonData();
+
+            final List<User> users = jsonDataStream.map(Support::parseJson)
+                                                   .collect(toList());
+
+            sendCouponTo(users);
+        } catch (Exception e) {
+            trackError(e);
+            System.out.println("No coupons sent");
+        }
+
     }
 }

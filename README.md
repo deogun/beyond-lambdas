@@ -1,8 +1,4 @@
 #Beyond lambdas, the aftermath
-This presentation was given at 
-- [JFokus](http://www.jfokus.se) Stockholm, 2016
-- [jDays](http://www.jdays.se) Gothenburg 2016
-- [Umeå Java User Group](http://www.meetu.ps/2Wj8Wd) Umeå 2016
 
 ##Abstract
 As Java developers we are used to having rich ecosystems of libraries and tools that make our lives easier. As of the release of Java 8, we finally got our hands on 
@@ -30,8 +26,6 @@ Master of science and a Java programmer for 14+ years. Loves creativity, beautif
 cloud computing and agile methodologies.
 
 ![Twitter][twitter img] **@DanielSawano**
-
-
 
 [deogun img]:daniel_deogun.jpg
 [sawano img]:daniel_sawano.jpg

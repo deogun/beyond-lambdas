@@ -14,25 +14,6 @@
  * limitations under the License.
  */
 
-package beyondlambdas.slides.s7;
+package beyondlambdas.slides.s10;
 
-import org.junit.Test;
-
-import java.util.function.Predicate;
-
-import static beyondlambdas.slides.s7.Support.service;
-
-public class _7 {
-
-    @Test
-    public void _() {
-
-        final long idToFind = 6;
-        final Predicate<Item> idFilter = item -> item.id().equals(idToFind);
-
-        service().itemsMatching(idFilter)
-                 .findFirst()
-                 .ifPresent(Support::doSomething);
-
-    }
-}
+public interface Alternator {}

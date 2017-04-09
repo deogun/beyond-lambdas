@@ -14,20 +14,25 @@
  * limitations under the License.
  */
 
-package beyondlambdas.slides.s8;
+package beyondlambdas.slides.s7;
 
-import beyondlambdas.slides.s7.Item;
-import beyondlambdas.slides.s7.ItemService;
+import org.junit.Test;
 
-import java.util.List;
+import java.util.function.Predicate;
 
-class Support {
+import static beyondlambdas.slides.s7.Support.service;
 
-    public static void givenALoggedInUser(final UserService userService) {
-        userService.setCurrentUser(new User(123L));
-    }
+public class _7a {
 
-    public static List<Item> itemsToBuy() {
-        return new ItemService().allItems();
+    @Test
+    public void _() {
+
+        final long idToFind = 6;
+        final Predicate<Item> idFilter = item -> item.id().equals(idToFind);
+
+        service().itemsMatching(idFilter)
+                 .findFirst()
+                 .ifPresent(Support::doSomething);
+
     }
 }
